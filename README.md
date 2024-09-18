@@ -1,2 +1,2 @@
 # Combustion chamber
-## Methane combustion chamber using reactingFoam
+## Simulation of methane combustion chamber using reactingFoam
