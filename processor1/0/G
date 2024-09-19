@@ -1,0 +1,82 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      binary;
+    class       volScalarField;
+    location    "0";
+    object      G;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 0 -3 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    wallOutside
+    {
+        type            MarshakRadiation;
+        T               T;
+        emissivityMode  lookup;
+        emissivity      uniform 1;
+        value           uniform 0;
+    }
+    inletAir
+    {
+        type            MarshakRadiation;
+        T               T;
+        emissivityMode  lookup;
+        emissivity      uniform 1;
+        value           uniform 0;
+    }
+    outlet
+    {
+        type            MarshakRadiation;
+        T               T;
+        emissivityMode  lookup;
+        emissivity      uniform 1;
+        value           nonuniform 
+0
+;
+    }
+    inletCH4
+    {
+        type            MarshakRadiation;
+        T               T;
+        emissivityMode  lookup;
+        emissivity      uniform 1;
+        value           uniform 0;
+    }
+    inletPilot
+    {
+        type            MarshakRadiation;
+        T               T;
+        emissivityMode  lookup;
+        emissivity      uniform 1;
+        value           uniform 0;
+    }
+    wallTube
+    {
+        type            MarshakRadiation;
+        T               T;
+        emissivityMode  lookup;
+        emissivity      uniform 1;
+        value           uniform 0;
+    }
+    procBoundary1to0
+    {
+        type            processor;
+        value           uniform 0;
+    }
+}
+
+
+// ************************************************************************* //
