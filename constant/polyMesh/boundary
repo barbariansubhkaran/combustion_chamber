@@ -1,47 +1,61 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2406                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
 FoamFile
 {
-	version	2.0;
-	format	ascii;
-	class	polyBoundaryMesh;
-	location	"constant/polyMesh";
-	object	boundary;
+    version     2.0;
+    format      binary;
+    arch        "LSB;label=32;scalar=64";
+    class       polyBoundaryMesh;
+    location    "constant/polyMesh";
+    object      boundary;
 }
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
 6
 (
-	wallOutside
-	{
-		type	wall;
-		startFace	274105;
-		nFaces	2858;
-	}
-	inletAir
-	{
-		type	patch;
-		startFace	276963;
-		nFaces	504;
-	}
-	outlet
-	{
-		type	patch;
-		startFace	277467;
-		nFaces	78;
-	}
-	inletPilot
-	{
-		type	patch;
-		startFace	277545;
-		nFaces	350;
-	}
-	inletCH4
-	{
-		type	patch;
-		startFace	277895;
-		nFaces	290;
-	}
-	wallTube
-	{
-		type	wall;
-		startFace	278185;
-		nFaces	8323;
-	}
+    wallOutside
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          18823;
+        startFace       2834235;
+    }
+    inletAir
+    {
+        type            patch;
+        nFaces          1741;
+        startFace       2853058;
+    }
+    outlet
+    {
+        type            patch;
+        nFaces          49;
+        startFace       2854799;
+    }
+    inletCH4
+    {
+        type            patch;
+        nFaces          131;
+        startFace       2854848;
+    }
+    inletPilot
+    {
+        type            patch;
+        nFaces          161;
+        startFace       2854979;
+    }
+    wallTube
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          19225;
+        startFace       2855140;
+    }
 )
+
+// ************************************************************************* //
