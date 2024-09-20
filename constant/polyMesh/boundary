@@ -1,61 +1,47 @@
-/*--------------------------------*- C++ -*----------------------------------*\
-| =========                 |                                                 |
-| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  2406                                  |
-|   \\  /    A nd           | Website:  www.openfoam.com                      |
-|    \\/     M anipulation  |                                                 |
-\*---------------------------------------------------------------------------*/
 FoamFile
 {
-    version     2.0;
-    format      binary;
-    arch        "LSB;label=32;scalar=64";
-    class       polyBoundaryMesh;
-    location    "constant/polyMesh";
-    object      boundary;
+	version	2.0;
+	format	ascii;
+	class	polyBoundaryMesh;
+	location	"constant/polyMesh";
+	object	boundary;
 }
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
 6
 (
-    wallOutside
-    {
-        type            wall;
-        inGroups        1(wall);
-        nFaces          56058;
-        startFace       1324795;
-    }
-    inletAir
-    {
-        type            patch;
-        nFaces          1232;
-        startFace       1380853;
-    }
-    outlet
-    {
-        type            patch;
-        nFaces          4462;
-        startFace       1382085;
-    }
-    inletCH4
-    {
-        type            patch;
-        nFaces          494;
-        startFace       1386547;
-    }
-    inletPilot
-    {
-        type            patch;
-        nFaces          631;
-        startFace       1387041;
-    }
-    wallTube
-    {
-        type            wall;
-        inGroups        1(wall);
-        nFaces          21311;
-        startFace       1387672;
-    }
+	wallOutside
+	{
+		type	wall;
+		startFace	1681857;
+		nFaces	38232;
+	}
+	air
+	{
+		type	patch;
+		startFace	1720089;
+		nFaces	1076;
+	}
+	outlet
+	{
+		type	patch;
+		startFace	1721165;
+		nFaces	3462;
+	}
+	fuel
+	{
+		type	patch;
+		startFace	1724627;
+		nFaces	600;
+	}
+	secondary_air
+	{
+		type	patch;
+		startFace	1725227;
+		nFaces	480;
+	}
+	wallTube
+	{
+		type	wall;
+		startFace	1725707;
+		nFaces	15171;
+	}
 )
-
-// ************************************************************************* //

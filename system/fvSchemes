@@ -2,40 +2,40 @@
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-    \\  /    A nd           | Version:  8
+    \\  /    A nd           | Version:  7  
      \\/     M anipulation  |
 \*---------------------------------------------------------------------------*/
 FoamFile
 {
-    version         2;
-    format          ascii;
-    class           dictionary;
-    location        "system";
-    object          fvSchemes;
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      fvSchemes;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 ddtSchemes
 {
-    default         backward;
+    default         Euler;
 }
 
 gradSchemes
 {
     default         Gauss linear;
-    grad(U)         Gauss linear;
-    grad(p)         Gauss linear;
 }
 
 divSchemes
 {
     default         none;
-    div(phi,U)      Gauss GammaV 0.3;
-    div((nuEff*dev2(T(grad(U))))) Gauss linear;
-    div(phi,k)      Gauss Gamma 0.3;
-    div(phi,K)      Gauss Gamma 0.3;
+
+    div(phi,U)      Gauss limitedLinearV 1;
+    div(phi,Yi_h)   Gauss limitedLinear 1;
+    div(phi,K)      Gauss limitedLinear 1;
+    div(phid,p)     Gauss limitedLinear 1;
+    div(phi,epsilon) Gauss limitedLinear 1;
+    div(phi,k) Gauss limitedLinear 1;
     div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear;
-    div(phi,Yi_h)   Gauss Gamma 1;
 }
 
 laplacianSchemes
@@ -51,12 +51,6 @@ interpolationSchemes
 snGradSchemes
 {
     default         orthogonal;
-}
-
-fluxRequired
-{
-    default         no;
-    p               ;
 }
 
 

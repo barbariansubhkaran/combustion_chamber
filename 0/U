@@ -17,13 +17,31 @@ FoamFile
 
 dimensions      [0 1 -1 0 0 0 0];
 
-internalField   uniform (0 0 0.9);
+internalField   uniform (0 0 0);
 
 boundaryField
 {
-    wallTube
+    fuel
     {
-        type            noSlip;
+      type            flowRateInletVelocity;
+      massFlowRate    constant 0.00011667;
+      rhoInlet        1.1965;
+      value           uniform (0 0 0);
+    }
+    air
+    {
+      type            flowRateInletVelocity;
+      massFlowRate    constant 0.009545;
+      rhoInlet        1.1965;
+      value           uniform (0 0 0);
+    }
+
+    secondary_air
+    {
+      type            flowRateInletVelocity;
+      massFlowRate    constant 0.00075945;
+      rhoInlet        1.1965;
+      value           uniform (0 0 0);
     }
 
     outlet
@@ -32,30 +50,14 @@ boundaryField
         value           $internalField;
     }
 
-    inletPilot
+    wallTube
     {
-        type            fixedValue;
-        value           uniform (0 0 -20);
+        type            noSlip;
     }
-
-    inletAir
-    {
-        type            fixedValue;
-        value           uniform (0 0 -20);
-    }
-
     wallOutside
     {
         type            zeroGradient;
     }
-
-    inletCH4
-    {
-        type            fixedValue;
-        value           uniform (0 0 -49.6);
-    }
-
-  
 }
 
 
