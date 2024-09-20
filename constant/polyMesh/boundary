@@ -22,39 +22,39 @@ FoamFile
     {
         type            wall;
         inGroups        1(wall);
-        nFaces          18823;
-        startFace       2834235;
+        nFaces          56058;
+        startFace       1324795;
     }
     inletAir
     {
         type            patch;
-        nFaces          1741;
-        startFace       2853058;
+        nFaces          1232;
+        startFace       1380853;
     }
     outlet
     {
         type            patch;
-        nFaces          49;
-        startFace       2854799;
+        nFaces          4462;
+        startFace       1382085;
     }
     inletCH4
     {
         type            patch;
-        nFaces          131;
-        startFace       2854848;
+        nFaces          494;
+        startFace       1386547;
     }
     inletPilot
     {
         type            patch;
-        nFaces          161;
-        startFace       2854979;
+        nFaces          631;
+        startFace       1387041;
     }
     wallTube
     {
         type            wall;
         inGroups        1(wall);
-        nFaces          19225;
-        startFace       2855140;
+        nFaces          21311;
+        startFace       1387672;
     }
 )
 
