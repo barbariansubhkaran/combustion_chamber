@@ -19,27 +19,23 @@ application     reactingFoam;
 
 startFrom       latestTime;
 
+startTime       0;
+
 stopAt          endTime;
 
-endTime         0.25;
+endTime         0.5;
 
-deltaT          1e-06;
-
-adjustTimeStep  yes;
-
-maxCo           0.4;
-
-maxDeltaT       1e-06;
+deltaT          1e-6;
 
 writeControl    adjustableRunTime;
 
-writeInterval   0.001;
-
-writePrecision  12;
+writeInterval   0.05;
 
 purgeWrite      0;
 
-writeFormat     binary;
+writeFormat     ascii;
+
+writePrecision  6;
 
 writeCompression off;
 
@@ -47,12 +43,16 @@ timeFormat      general;
 
 timePrecision   6;
 
-runTimeModifiable false;
+runTimeModifiable true;
+
+adjustTimeStep  yes;
+
+maxCo           0.4;
 
 
 functions
 {
-    
+
 }
 
 
