@@ -1,0 +1,398 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 7
+Exec   : reactingFoam -parallel
+Date   : Sep 22 2024
+Time   : 14:03:17
+Host   : "gagan-hp"
+PID    : 126099
+I/O    : uncollated
+Case   : /home/gagan/Videos/combustion_chamber
+nProcs : 2
+Slaves : 1("gagan-hp.126100")
+Pstream initialized with:
+    floatTransfer      : 0
+    nProcsSimpleSum    : 0
+    commsType          : nonBlocking
+    polling iterations : 0
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+
+PIMPLE: No convergence criteria found
+
+
+PIMPLE: Operating solver in transient mode with 1 outer corrector
+PIMPLE: Operating solver in PISO mode
+
+
+Reading thermophysical properties
+
+Selecting thermodynamics package 
+{
+    type            hePsiThermo;
+    mixture         reactingMixture;
+    transport       sutherland;
+    thermo          janaf;
+    energy          sensibleEnthalpy;
+    equationOfState perfectGas;
+    specie          specie;
+}
+
+Selecting chemistryReader foamChemistryReader
+Reading field U
+
+Reading/calculating face flux field phi
+
+Creating turbulence model.
+
+Selecting turbulence model type RAS
+Selecting RAS turbulence model kEpsilon
+RAS
+{
+    RASModel        kEpsilon;
+    turbulence      on;
+    printCoeffs     on;
+    Cmu             0.09;
+    C1              1.44;
+    C2              1.92;
+    C3              0;
+    sigmak          1;
+    sigmaEps        1.3;
+}
+
+Creating reaction model
+
+Selecting combustion model EDC
+Selecting chemistry solver 
+{
+    solver          ode;
+    method          TDAC;
+}
+
+StandardChemistryModel: Number of species = 36 and reactions = 219
+Selecting chemistry reduction method DAC
+element not considered
+Selecting chemistry tabulation method ISAT
+Selecting ODE solver seulex
+    using integrated reaction rate
+Creating field dpdt
+
+Creating field kinetic energy K
+
+No MRF models present
+
+Creating finite volume options from "constant/fvOptions"
+
+Selecting finite volume options model type radiation
+    Source: radiation
+Selecting radiationModel P1
+Selecting absorptionEmissionModel greyMeanCombustion
+Selecting scatterModel none
+Selecting sootModel none
+Courant Number mean: 9.07869e-05 max: 0.00469328
+
+Starting time loop
+
+Courant Number mean: 9.07869e-05 max: 0.00469328
+deltaT = 1.19999e-06
+Time = 1.19999e-06
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+DILUPBiCGStab:  Solving for H2, Initial residual = 1, Final residual = 3.24357e-09, No Iterations 1
+DILUPBiCGStab:  Solving for H, Initial residual = 1, Final residual = 3.24357e-09, No Iterations 1
+DILUPBiCGStab:  Solving for O, Initial residual = 1, Final residual = 3.24357e-09, No Iterations 1
+DILUPBiCGStab:  Solving for O2, Initial residual = 6.50543e-06, Final residual = 2.47657e-10, No Iterations 1
+DILUPBiCGStab:  Solving for OH, Initial residual = 1, Final residual = 3.24357e-09, No Iterations 1
+DILUPBiCGStab:  Solving for H2O, Initial residual = 1, Final residual = 3.24357e-09, No Iterations 1
+DILUPBiCGStab:  Solving for HO2, Initial residual = 7.06543e-22, Final residual = 7.06543e-22, No Iterations 0
+DILUPBiCGStab:  Solving for CH3, Initial residual = 3.21841e-22, Final residual = 3.21841e-22, No Iterations 0
+DILUPBiCGStab:  Solving for CH4, Initial residual = 8.97764e-07, Final residual = 8.97764e-07, No Iterations 0
+DILUPBiCGStab:  Solving for CO, Initial residual = 1, Final residual = 3.24357e-09, No Iterations 1
+DILUPBiCGStab:  Solving for CO2, Initial residual = 1, Final residual = 3.24357e-09, No Iterations 1
+DICPCG:  Solving for G, Initial residual = 1, Final residual = 9.97114e-06, No Iterations 403
+DILUPBiCGStab:  Solving for h, Initial residual = 0.00830102, Final residual = 2.81935e-07, No Iterations 1
+min/max(T) = 291, 1880
+DICPCG:  Solving for p, Initial residual = 1, Final residual = 0.0237123, No Iterations 1
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.83626e-08, global = 8.92628e-10, cumulative = 8.92628e-10
+DICPCG:  Solving for p, Initial residual = 8.78794e-05, Final residual = 9.48713e-08, No Iterations 2
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 3.02574e-11, global = 1.60035e-11, cumulative = 9.08631e-10
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00417401, Final residual = 4.09458e-09, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 1, Final residual = 4.57921e-11, No Iterations 1
+ExecutionTime = 22.65 s  ClockTime = 45 s
+
+Courant Number mean: 0.000108969 max: 0.0984673
+deltaT = 1.43997e-06
+Time = 2.63997e-06
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+DILUPBiCGStab:  Solving for H2, Initial residual = 9.51585e-05, Final residual = 1.91336e-08, No Iterations 1
+DILUPBiCGStab:  Solving for H, Initial residual = 9.44138e-05, Final residual = 1.87799e-08, No Iterations 1
+DILUPBiCGStab:  Solving for O, Initial residual = 9.46899e-05, Final residual = 1.88817e-08, No Iterations 1
+DILUPBiCGStab:  Solving for O2, Initial residual = 1.4298e-06, Final residual = 9.91188e-11, No Iterations 1
+DILUPBiCGStab:  Solving for OH, Initial residual = 9.47152e-05, Final residual = 1.89093e-08, No Iterations 1
+DILUPBiCGStab:  Solving for H2O, Initial residual = 9.51651e-05, Final residual = 1.9137e-08, No Iterations 1
+DILUPBiCGStab:  Solving for HO2, Initial residual = 1, Final residual = 1.44632e-07, No Iterations 1
+DILUPBiCGStab:  Solving for H2O2, Initial residual = 1, Final residual = 1.30103e-07, No Iterations 1
+DILUPBiCGStab:  Solving for CH3, Initial residual = 1.10094e-22, Final residual = 1.10094e-22, No Iterations 0
+DILUPBiCGStab:  Solving for CH4, Initial residual = 1.00949e-06, Final residual = 9.95471e-12, No Iterations 1
+DILUPBiCGStab:  Solving for CO, Initial residual = 9.51532e-05, Final residual = 1.91308e-08, No Iterations 1
+DILUPBiCGStab:  Solving for CO2, Initial residual = 9.51589e-05, Final residual = 1.91339e-08, No Iterations 1
+DILUPBiCGStab:  Solving for HCO, Initial residual = 0.999896, Final residual = 1.99155e-07, No Iterations 1
+DICPCG:  Solving for G, Initial residual = 0.0254517, Final residual = 9.86327e-06, No Iterations 227
+DILUPBiCGStab:  Solving for h, Initial residual = 0.000857898, Final residual = 1.10847e-07, No Iterations 1
+min/max(T) = 291, 1880
+DICPCG:  Solving for p, Initial residual = 0.00332603, Final residual = 6.57156e-05, No Iterations 1
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 2.14072e-08, global = -2.45572e-09, cumulative = -1.54709e-09
+DICPCG:  Solving for p, Initial residual = 5.28494e-05, Final residual = 2.00566e-07, No Iterations 2
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 9.21366e-11, global = 4.99671e-11, cumulative = -1.49712e-09
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.0050272, Final residual = 1.03551e-08, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.969204, Final residual = 4.42142e-10, No Iterations 1
+ExecutionTime = 38.57 s  ClockTime = 61 s
+
+Courant Number mean: 0.000130723 max: 0.189962
+deltaT = 1.72792e-06
+Time = 4.36788e-06
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+DILUPBiCGStab:  Solving for H2, Initial residual = 0.000131781, Final residual = 9.73087e-08, No Iterations 1
+DILUPBiCGStab:  Solving for H, Initial residual = 0.000131613, Final residual = 9.58688e-08, No Iterations 1
+DILUPBiCGStab:  Solving for O, Initial residual = 0.000131567, Final residual = 9.61077e-08, No Iterations 1
+DILUPBiCGStab:  Solving for O2, Initial residual = 1.84866e-06, Final residual = 5.0607e-10, No Iterations 1
+DILUPBiCGStab:  Solving for OH, Initial residual = 0.000131569, Final residual = 9.6255e-08, No Iterations 1
+DILUPBiCGStab:  Solving for H2O, Initial residual = 0.000131788, Final residual = 9.73353e-08, No Iterations 1
+DILUPBiCGStab:  Solving for HO2, Initial residual = 0.00121101, Final residual = 6.95522e-09, No Iterations 1
+DILUPBiCGStab:  Solving for H2O2, Initial residual = 0.000685452, Final residual = 3.39575e-09, No Iterations 1
+DILUPBiCGStab:  Solving for CH3, Initial residual = 0, Final residual = 0, No Iterations 0
+DILUPBiCGStab:  Solving for CH4, Initial residual = 1.21673e-06, Final residual = 1.69552e-11, No Iterations 1
+DILUPBiCGStab:  Solving for CO, Initial residual = 0.000131775, Final residual = 9.72849e-08, No Iterations 1
+DILUPBiCGStab:  Solving for CO2, Initial residual = 0.000131782, Final residual = 9.73106e-08, No Iterations 1
+DILUPBiCGStab:  Solving for HCO, Initial residual = 0.00249113, Final residual = 1.49045e-08, No Iterations 1
+DICPCG:  Solving for G, Initial residual = 0.0363217, Final residual = 9.57176e-06, No Iterations 232
+DILUPBiCGStab:  Solving for h, Initial residual = 0.000775797, Final residual = 7.96475e-08, No Iterations 1
+min/max(T) = 291, 1880
+DICPCG:  Solving for p, Initial residual = 0.00324185, Final residual = 6.69014e-05, No Iterations 1
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 3.12973e-08, global = 4.97779e-09, cumulative = 3.48067e-09
+DICPCG:  Solving for p, Initial residual = 6.60235e-05, Final residual = 4.57487e-07, No Iterations 2
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 2.52866e-10, global = 1.05674e-10, cumulative = 3.58634e-09
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00608978, Final residual = 1.49167e-08, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.947506, Final residual = 3.06702e-10, No Iterations 1
+ExecutionTime = 55.54 s  ClockTime = 78 s
+
+Courant Number mean: 0.000156693 max: 0.18303
+deltaT = 2.07348e-06
+Time = 6.44136e-06
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+DILUPBiCGStab:  Solving for H2, Initial residual = 0.00012166, Final residual = 1.61725e-07, No Iterations 1
+DILUPBiCGStab:  Solving for H, Initial residual = 0.000121676, Final residual = 1.61786e-07, No Iterations 1
+DILUPBiCGStab:  Solving for O, Initial residual = 0.000121668, Final residual = 1.6176e-07, No Iterations 1
+DILUPBiCGStab:  Solving for O2, Initial residual = 2.10331e-06, Final residual = 9.65198e-10, No Iterations 1
+DILUPBiCGStab:  Solving for OH, Initial residual = 0.000121669, Final residual = 1.6176e-07, No Iterations 1
+DILUPBiCGStab:  Solving for H2O, Initial residual = 0.00012166, Final residual = 1.61725e-07, No Iterations 1
+DILUPBiCGStab:  Solving for HO2, Initial residual = 0.000155403, Final residual = 3.49518e-07, No Iterations 1
+DILUPBiCGStab:  Solving for H2O2, Initial residual = 0.000145717, Final residual = 3.29438e-07, No Iterations 1
+DILUPBiCGStab:  Solving for CH3, Initial residual = 0, Final residual = 0, No Iterations 0
+DILUPBiCGStab:  Solving for CH4, Initial residual = 1.45603e-06, Final residual = 2.78848e-11, No Iterations 1
+DILUPBiCGStab:  Solving for CO, Initial residual = 0.00012166, Final residual = 1.61726e-07, No Iterations 1
+DILUPBiCGStab:  Solving for CO2, Initial residual = 0.00012166, Final residual = 1.61725e-07, No Iterations 1
+DILUPBiCGStab:  Solving for HCO, Initial residual = 0.000167114, Final residual = 3.84271e-07, No Iterations 1
+DICPCG:  Solving for G, Initial residual = 0.02987, Final residual = 9.89763e-06, No Iterations 233
+DILUPBiCGStab:  Solving for h, Initial residual = 0.000843573, Final residual = 2.4912e-07, No Iterations 1
+min/max(T) = 291, 1880
+DICPCG:  Solving for p, Initial residual = 0.0031448, Final residual = 0.000145499, No Iterations 1
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 8.19787e-08, global = -2.55542e-08, cumulative = -2.19679e-08
+DICPCG:  Solving for p, Initial residual = 0.00013596, Final residual = 1.53216e-07, No Iterations 3
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 9.88015e-11, global = -5.57278e-12, cumulative = -2.19734e-08
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00738694, Final residual = 1.92907e-08, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.930078, Final residual = 1.63978e-10, No Iterations 1
+ExecutionTime = 72.29 s  ClockTime = 95 s
+
+Courant Number mean: 0.00018772 max: 0.139029
+deltaT = 2.48811e-06
+Time = 8.92947e-06
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+DILUPBiCGStab:  Solving for H2, Initial residual = 8.89373e-05, Final residual = 1.10262e-07, No Iterations 1
+DILUPBiCGStab:  Solving for H, Initial residual = 8.91448e-05, Final residual = 1.09308e-07, No Iterations 1
+DILUPBiCGStab:  Solving for O, Initial residual = 8.90657e-05, Final residual = 1.09382e-07, No Iterations 1
+DILUPBiCGStab:  Solving for O2, Initial residual = 2.25584e-06, Final residual = 7.27991e-10, No Iterations 1
+DILUPBiCGStab:  Solving for OH, Initial residual = 8.90362e-05, Final residual = 1.09598e-07, No Iterations 1
+DILUPBiCGStab:  Solving for H2O, Initial residual = 8.89367e-05, Final residual = 1.1026e-07, No Iterations 1
+DILUPBiCGStab:  Solving for HO2, Initial residual = 0.000406548, Final residual = 6.0581e-09, No Iterations 1
+DILUPBiCGStab:  Solving for H2O2, Initial residual = 0.00021206, Final residual = 5.52555e-07, No Iterations 1
+DILUPBiCGStab:  Solving for CH3, Initial residual = 8.45891e-170, Final residual = 8.45891e-170, No Iterations 0
+DILUPBiCGStab:  Solving for CH4, Initial residual = 1.73998e-06, Final residual = 4.60425e-11, No Iterations 1
+DILUPBiCGStab:  Solving for CO, Initial residual = 8.89395e-05, Final residual = 1.1024e-07, No Iterations 1
+DILUPBiCGStab:  Solving for CO2, Initial residual = 8.8938e-05, Final residual = 1.10251e-07, No Iterations 1
+DILUPBiCGStab:  Solving for HCO, Initial residual = 0.00137048, Final residual = 2.61104e-08, No Iterations 1
+DICPCG:  Solving for G, Initial residual = 0.019049, Final residual = 9.20282e-06, No Iterations 234
+DILUPBiCGStab:  Solving for h, Initial residual = 0.000864566, Final residual = 9.08325e-08, No Iterations 1
+min/max(T) = 291, 1880
+DICPCG:  Solving for p, Initial residual = 0.00326282, Final residual = 0.000287287, No Iterations 1
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.88696e-07, global = -9.65486e-08, cumulative = -1.18522e-07
+DICPCG:  Solving for p, Initial residual = 0.000258076, Final residual = 7.54696e-07, No Iterations 3
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 5.62243e-10, global = -1.71799e-10, cumulative = -1.18694e-07
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00898341, Final residual = 2.70249e-08, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.917109, Final residual = 2.24312e-10, No Iterations 1
+ExecutionTime = 89.21 s  ClockTime = 112 s
+
+Courant Number mean: 0.000224823 max: 0.189429
+deltaT = 2.98561e-06
+Time = 1.19151e-05
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+DILUPBiCGStab:  Solving for H2, Initial residual = 6.80631e-05, Final residual = 6.94e-08, No Iterations 1
+DILUPBiCGStab:  Solving for H, Initial residual = 6.85368e-05, Final residual = 6.94062e-08, No Iterations 1
+DILUPBiCGStab:  Solving for O, Initial residual = 6.83719e-05, Final residual = 6.9407e-08, No Iterations 1
+DILUPBiCGStab:  Solving for O2, Initial residual = 2.48845e-06, Final residual = 5.47465e-10, No Iterations 1
+DILUPBiCGStab:  Solving for OH, Initial residual = 6.82924e-05, Final residual = 6.94048e-08, No Iterations 1
+DILUPBiCGStab:  Solving for H2O, Initial residual = 6.80629e-05, Final residual = 6.93994e-08, No Iterations 1
+DILUPBiCGStab:  Solving for HO2, Initial residual = 0.000278554, Final residual = 3.20702e-07, No Iterations 1
+DILUPBiCGStab:  Solving for H2O2, Initial residual = 0.000179934, Final residual = 2.03219e-07, No Iterations 1
+DILUPBiCGStab:  Solving for CH3, Initial residual = 4.19934e-163, Final residual = 4.19934e-163, No Iterations 0
+DILUPBiCGStab:  Solving for CH4, Initial residual = 2.07105e-06, Final residual = 7.64424e-11, No Iterations 1
+DILUPBiCGStab:  Solving for CO, Initial residual = 6.80692e-05, Final residual = 6.93963e-08, No Iterations 1
+DILUPBiCGStab:  Solving for CO2, Initial residual = 6.8066e-05, Final residual = 6.93978e-08, No Iterations 1
+DILUPBiCGStab:  Solving for HCO, Initial residual = 0.000419709, Final residual = 4.53638e-07, No Iterations 1
+DICPCG:  Solving for G, Initial residual = 0.0108758, Final residual = 9.61093e-06, No Iterations 234
+DILUPBiCGStab:  Solving for h, Initial residual = 0.000926032, Final residual = 9.12644e-08, No Iterations 1
+min/max(T) = 291, 1880
+DICPCG:  Solving for p, Initial residual = 0.00358048, Final residual = 8.65239e-05, No Iterations 2
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 6.56703e-08, global = -3.94979e-08, cumulative = -1.58192e-07
+DICPCG:  Solving for p, Initial residual = 8.18788e-05, Final residual = 7.03249e-07, No Iterations 3
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 6.11322e-10, global = -2.16762e-10, cumulative = -1.58409e-07
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.0109478, Final residual = 3.90642e-08, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.906622, Final residual = 3.15255e-10, No Iterations 1
+ExecutionTime = 106 s  ClockTime = 129 s
+
+Courant Number mean: 0.000269194 max: 0.244524
+deltaT = 3.47381e-06
+Time = 1.53889e-05
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+DILUPBiCGStab:  Solving for H2, Initial residual = 6.4819e-05, Final residual = 5.87853e-08, No Iterations 1
+DILUPBiCGStab:  Solving for H, Initial residual = 6.49545e-05, Final residual = 5.8911e-08, No Iterations 1
+DILUPBiCGStab:  Solving for O, Initial residual = 6.48954e-05, Final residual = 5.88727e-08, No Iterations 1
+DILUPBiCGStab:  Solving for O2, Initial residual = 2.79906e-06, Final residual = 5.45008e-10, No Iterations 1
+DILUPBiCGStab:  Solving for OH, Initial residual = 6.48772e-05, Final residual = 5.88547e-08, No Iterations 1
+DILUPBiCGStab:  Solving for H2O, Initial residual = 6.48185e-05, Final residual = 5.87847e-08, No Iterations 1
+DILUPBiCGStab:  Solving for HO2, Initial residual = 8.10554e-05, Final residual = 7.67839e-08, No Iterations 1
+DILUPBiCGStab:  Solving for H2O2, Initial residual = 7.04963e-05, Final residual = 6.85794e-08, No Iterations 1
+DILUPBiCGStab:  Solving for CH3, Initial residual = 0, Final residual = 0, No Iterations 0
+DILUPBiCGStab:  Solving for CH4, Initial residual = 2.38288e-06, Final residual = 1.14796e-10, No Iterations 1
+DILUPBiCGStab:  Solving for CO, Initial residual = 6.482e-05, Final residual = 5.87867e-08, No Iterations 1
+DILUPBiCGStab:  Solving for CO2, Initial residual = 6.48192e-05, Final residual = 5.87857e-08, No Iterations 1
+DILUPBiCGStab:  Solving for HCO, Initial residual = 9.3292e-05, Final residual = 8.66565e-08, No Iterations 1
+DICPCG:  Solving for G, Initial residual = 0.0125714, Final residual = 9.91398e-06, No Iterations 234
+DILUPBiCGStab:  Solving for h, Initial residual = 0.00101658, Final residual = 1.08202e-07, No Iterations 1
+min/max(T) = 291, 1880
+DICPCG:  Solving for p, Initial residual = 0.00381905, Final residual = 0.000102235, No Iterations 2
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 8.93214e-08, global = -4.45179e-08, cumulative = -2.02926e-07
+DICPCG:  Solving for p, Initial residual = 9.53818e-05, Final residual = 2.21077e-07, No Iterations 4
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 2.19711e-10, global = -1.84666e-11, cumulative = -2.02945e-07
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.0129732, Final residual = 5.32584e-08, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.89525, Final residual = 3.92052e-10, No Iterations 1
+ExecutionTime = 122.83 s  ClockTime = 146 s
+
+Courant Number mean: 0.000312475 max: 0.22197
+deltaT = 4.09979e-06
+Time = 1.94887e-05
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+DILUPBiCGStab:  Solving for H2, Initial residual = 7.43015e-05, Final residual = 6.91091e-08, No Iterations 1
+DILUPBiCGStab:  Solving for H, Initial residual = 7.44808e-05, Final residual = 6.92536e-08, No Iterations 1
+DILUPBiCGStab:  Solving for O, Initial residual = 7.44267e-05, Final residual = 6.92105e-08, No Iterations 1
+DILUPBiCGStab:  Solving for O2, Initial residual = 3.27954e-06, Final residual = 7.29814e-10, No Iterations 1
+DILUPBiCGStab:  Solving for OH, Initial residual = 7.44019e-05, Final residual = 6.91941e-08, No Iterations 1
+DILUPBiCGStab:  Solving for H2O, Initial residual = 7.43004e-05, Final residual = 6.91078e-08, No Iterations 1
+DILUPBiCGStab:  Solving for HO2, Initial residual = 8.76166e-05, Final residual = 1.14741e-07, No Iterations 1
+DILUPBiCGStab:  Solving for H2O2, Initial residual = 7.32738e-05, Final residual = 9.67699e-08, No Iterations 1
+DILUPBiCGStab:  Solving for CH3, Initial residual = 0, Final residual = 0, No Iterations 0
+DILUPBiCGStab:  Solving for CH4, Initial residual = 2.77497e-06, Final residual = 1.7965e-10, No Iterations 1
+DILUPBiCGStab:  Solving for CO, Initial residual = 7.43033e-05, Final residual = 6.91102e-08, No Iterations 1
+DILUPBiCGStab:  Solving for CO2, Initial residual = 7.43018e-05, Final residual = 6.9109e-08, No Iterations 1
+DILUPBiCGStab:  Solving for HCO, Initial residual = 0.000104483, Final residual = 1.37496e-07, No Iterations 1
+DICPCG:  Solving for G, Initial residual = 0.0174968, Final residual = 9.7285e-06, No Iterations 188
+DILUPBiCGStab:  Solving for h, Initial residual = 0.00115325, Final residual = 1.53143e-07, No Iterations 1
+min/max(T) = 291, 1880
+DICPCG:  Solving for p, Initial residual = 0.00404967, Final residual = 0.000113063, No Iterations 2
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 1.13051e-07, global = -4.5664e-08, cumulative = -2.48609e-07
+DICPCG:  Solving for p, Initial residual = 0.000107855, Final residual = 6.85697e-07, No Iterations 4
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 7.75615e-10, global = -1.13444e-10, cumulative = -2.48722e-07
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.0156202, Final residual = 7.52699e-08, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.887186, Final residual = 5.56308e-10, No Iterations 1
+ExecutionTime = 138.9 s  ClockTime = 162 s
+
+Courant Number mean: 0.00036787 max: 0.2256
+deltaT = 4.8267e-06
+Time = 2.43154e-05
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+DILUPBiCGStab:  Solving for H2, Initial residual = 8.55989e-05, Final residual = 9.85998e-08, No Iterations 1
+DILUPBiCGStab:  Solving for H, Initial residual = 8.57554e-05, Final residual = 9.89032e-08, No Iterations 1
+DILUPBiCGStab:  Solving for O, Initial residual = 8.57075e-05, Final residual = 9.88026e-08, No Iterations 1
+DILUPBiCGStab:  Solving for O2, Initial residual = 3.83338e-06, Final residual = 1.11625e-09, No Iterations 1
+DILUPBiCGStab:  Solving for OH, Initial residual = 8.5687e-05, Final residual = 9.87548e-08, No Iterations 1
+DILUPBiCGStab:  Solving for H2O, Initial residual = 8.5598e-05, Final residual = 9.85984e-08, No Iterations 1
+DILUPBiCGStab:  Solving for HO2, Initial residual = 9.50836e-05, Final residual = 1.85644e-07, No Iterations 1
+DILUPBiCGStab:  Solving for H2O2, Initial residual = 8.10772e-05, Final residual = 1.58415e-07, No Iterations 1
+DILUPBiCGStab:  Solving for CH3, Initial residual = 0, Final residual = 0, No Iterations 0
+DILUPBiCGStab:  Solving for CH4, Initial residual = 3.21063e-06, Final residual = 2.78556e-10, No Iterations 1
+DILUPBiCGStab:  Solving for CO, Initial residual = 8.56005e-05, Final residual = 9.86029e-08, No Iterations 1
+DILUPBiCGStab:  Solving for CO2, Initial residual = 8.55992e-05, Final residual = 9.86006e-08, No Iterations 1
+DILUPBiCGStab:  Solving for HCO, Initial residual = 0.000112406, Final residual = 2.27742e-07, No Iterations 1
+DICPCG:  Solving for G, Initial residual = 0.0217489, Final residual = 9.37699e-06, No Iterations 188
+DILUPBiCGStab:  Solving for h, Initial residual = 0.00129048, Final residual = 2.14426e-07, No Iterations 1
+min/max(T) = 291, 1880
+DICPCG:  Solving for p, Initial residual = 0.00413674, Final residual = 0.000177015, No Iterations 2
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 2.01854e-07, global = -6.42007e-08, cumulative = -3.12923e-07
+DICPCG:  Solving for p, Initial residual = 0.000164908, Final residual = 3.52061e-07, No Iterations 6
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+time step continuity errors : sum local = 4.51642e-10, global = 8.11625e-11, cumulative = -3.12842e-07
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.0188024, Final residual = 1.0621e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.880186, Final residual = 8.01538e-10, No Iterations 1
+ExecutionTime = 155.15 s  ClockTime = 178 s
+
+Courant Number mean: 0.000431844 max: 0.239357
+deltaT = 5.63297e-06
+Time = 2.99483e-05
+
+diagonal:  Solving for rho, Initial residual = 0, Final residual = 0, No Iterations 0
+DILUPBiCGStab:  Solving for H2, Initial residual = 9.12977e-05, Final residual = 1.24224e-07, No Iterations 1
+DILUPBiCGStab:  Solving for H, Initial residual = 9.14552e-05, Final residual = 1.24459e-07, No Iterations 1
+DILUPBiCGStab:  Solving for O, Initial residual = 9.14069e-05, Final residual = 1.24371e-07, No Iterations 1
+DILUPBiCGStab:  Solving for O2, Initial residual = 4.379e-06, Final residual = 1.60523e-09, No Iterations 1
+DILUPBiCGStab:  Solving for OH, Initial residual = 9.13861e-05, Final residual = 1.24332e-07, No Iterations 1
+DILUPBiCGStab:  Solving for H2O, Initial residual = 9.12968e-05, Final residual = 1.24223e-07, No Iterations 1
+DILUPBiCGStab:  Solving for HO2, Initial residual = 9.30813e-05, Final residual = 2.40827e-07, No Iterations 1
+DILUPBiCGStab:  Solving for H2O2, Initial residual = 8.07995e-05, Final residual = 2.02868e-07, No Iterations 1
+DILUPBiCGStab:  Solving for CH3, Initial residual = 0, Final residual = 0, No Iterations 0
