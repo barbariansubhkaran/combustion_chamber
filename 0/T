@@ -17,30 +17,14 @@ FoamFile
 
 dimensions      [0 0 0 1 0 0 0];
 
-internalField   uniform 2000;
+internalField   uniform 300;
 
 boundaryField
 {
-    fuel
+    inletCH4
     {
         type            fixedValue;
-        value           uniform 293;
-    }
-    air
-    {
-        type            fixedValue;
-        value           uniform 293;
-    }
-    secondary_air
-    {
-      type            fixedValue;
-      value           uniform 293;
-    }
-    outlet
-    {
-        type            inletOutlet;
-        inletValue      uniform 293;
-        value           uniform 293;
+        value           uniform 294;
     }
 
     wallOutside
@@ -52,6 +36,25 @@ boundaryField
     {
         type            zeroGradient;
     }
+
+    inletPilot
+    {
+        type            fixedValue;
+        value           uniform 1880;
+    }
+
+    inletAir
+    {
+        type            fixedValue;
+        value           uniform 291;
+    }
+
+    outlet
+    {
+        type            zeroGradient;
+    }
+
+  
 }
 
 

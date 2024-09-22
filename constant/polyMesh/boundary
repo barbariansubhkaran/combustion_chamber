@@ -14,7 +14,7 @@ FoamFile
 		startFace	1681857;
 		nFaces	38232;
 	}
-	air
+	inletAir
 	{
 		type	patch;
 		startFace	1720089;
@@ -26,13 +26,13 @@ FoamFile
 		startFace	1721165;
 		nFaces	3462;
 	}
-	fuel
+	 inletPilot
 	{
 		type	patch;
 		startFace	1724627;
 		nFaces	600;
 	}
-	secondary_air
+	 inletCH4
 	{
 		type	patch;
 		startFace	1725227;

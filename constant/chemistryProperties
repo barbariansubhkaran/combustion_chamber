@@ -15,26 +15,42 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#includeEtc "caseDicts/solvers/chemistry/TDAC/chemistryPropertiesFlame.cfg"
+
 chemistryType
 {
-    solver            EulerImplicit;
+    solver            ode;
+    method            TDAC;
 }
 
-chemistry           on;
+chemistry       on;
 
-initialChemicalTimeStep 1e-07;
-
-EulerImplicitCoeffs
-{
-    cTauChem        1;
-    equilibriumRateLimiter off;
-}
+initialChemicalTimeStep 1e-7;
+//maxChemicalTimeStep 1e-3;
 
 odeCoeffs
 {
-    solver          Rosenbrock43;
+    solver          seulex;
     absTol          1e-8;
-    relTol          0.01;
+    relTol          1e-1;
+}
+
+importantSpecies
+{
+    CO2;
+    H2O;
+    CH4;
+    O2;
+}
+
+reduction
+{
+    tolerance   1e-4;
+}
+
+tabulation
+{
+    tolerance   3e-3;
 }
 
 // ************************************************************************* //

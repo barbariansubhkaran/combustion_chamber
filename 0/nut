@@ -11,45 +11,56 @@ FoamFile
     format      ascii;
     class       volScalarField;
     location    "0";
-    object      p;
+    object      nut;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [1 -1 -2 0 0 0 0];
+dimensions      [0 2 -1 0 0 0 0];
 
-internalField   uniform 100000;
+internalField   uniform 0;
 
 boundaryField
 {
     wallTube
     {
-        type            zeroGradient;
+        type            nutkWallFunction;
+        Cmu             0.09;
+        kappa           0.41;
+        E               9.8;
+        value           $internalField;
     }
 
     outlet
     {
-        type            totalPressure;
-        p0              $internalField;
+        type            calculated;
+        value           $internalField;
     }
 
     inletPilot
     {
-        type            zeroGradient;
+        type            calculated;
+        value           $internalField;
     }
 
     inletAir
     {
-        type            zeroGradient;
+        type            calculated;
+        value           $internalField;
     }
 
     wallOutside
     {
-        type            zeroGradient;
+        type            nutkWallFunction;
+        Cmu             0.09;
+        kappa           0.41;
+        E               9.8;
+        value           $internalField;
     }
 
     inletCH4
     {
-        type            zeroGradient;
+        type            calculated;
+        value           $internalField;
     }
 
     frontAndBack_pos
